@@ -3,6 +3,7 @@ package edu.yu.einstein.methylPhase
 import com.beust.jcommander.Parameter
 import scala.io.Source
 import java.io.PrintWriter
+import com.beust.jcommander.JCommander
 
 /**
  * Writes the result of the summarized phased CpG file into 6 bedgraph files containing the
@@ -22,8 +23,8 @@ object GenerateBedFiles {
   }
 
   def main(args: Array[String]): Unit = {
+    new JCommander(Args, args.toArray: _*)
     val inputFileLines = Source.fromFile(Args.inputFilePath).getLines
-    val output = Source.fromFile("someFile")
     val prefix = Args.inputFilePath.replaceAll("\\.[^.]*$", "")
     val matMethylPrinter = new PrintWriter(prefix + "_mat_methyl.bgr")
     val matUnmethylPrinter = new PrintWriter(prefix + "_mat_unmethyl.bgr")

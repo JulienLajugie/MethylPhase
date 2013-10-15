@@ -11,16 +11,6 @@ object Strand extends Enumeration {
   val Plus = Value("+")
   val Minus = Value("-")
 
-  /*def lookup(symbol: Char): Strand = {
-    if (symbol == '+') {
-      Strand.Plus
-    } else if (symbol == '-') {
-      Strand.Minus
-    } else {
-      throw new NoSuchElementException
-    }
-  }*/
-
   override def toString(): String = {
     Value match {
       case Plus => "+"

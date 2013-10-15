@@ -48,17 +48,14 @@ class SAMReadDoubleMap {
    * Overload parenthesis with an encrypted name as parameter.
    * @return a SAMMethylatedReadPair with the specified encrypted name
    */
-  def apply(encriptedReadName: String): SAMMethylatedReadPair = {
-    if (encriptedReadNameMap.contains(encriptedReadName))
-      encriptedReadNameMap(encriptedReadName)
-    else
-      null
-  }
+  def apply(encriptedReadName: String): SAMMethylatedReadPair =
+    if (encriptedReadNameMap.contains(encriptedReadName)) encriptedReadNameMap(encriptedReadName)
+    else null
 
   /**
    * Clears the map
    */
-  def clear() = positionMap.clear(); encriptedReadNameMap.clear
+  def clear() = { positionMap.clear(); encriptedReadNameMap.clear }
 
   /**
    * @return the last position in the map or -1 if the map is empty.
